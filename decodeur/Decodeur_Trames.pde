@@ -16,13 +16,18 @@ static unsigned long curVal;
 void setup() {
   Serial.begin(9600);
   mySwitch.enableReceive(0);  // Receiver on inerrupt 0 => that is pin #2
-
-  Serial.println(sizeof(unsigned long));
+  Serial.println("salut gringo");
 }
 
 void loop() {
+  static  unsigned long curT;
+  static  unsigned long lastT;
   if (mySwitch.available()) {
-    
+    curT = millis();
+    Serial.print("delta : ");
+    Serial.println(curT-lastT);
+
+    lastT = curT;
     int value = mySwitch.getReceivedValue();
     
     if (value == 0) {
@@ -35,14 +40,13 @@ void loop() {
       //Serial.println( curVal, BIN );
       print_binary(curVal,32);
       Serial.print("\n");
-    Serial.print("Diff         : ");
+//    Serial.print("Diff         : ");
 //      Serial.print( mySwitch.getReceivedBitlength() );
 //      Serial.print("bit ");
 //      Serial.print("Protocol: ");
 //      Serial.println( mySwitch.getReceivedProtocol() );
-      
-      print_binary(lastVal ^ curVal,32);
-      Serial.print("\n");
+//      print_binary(lastVal ^ curVal,32);
+//      Serial.print("\n");
 //    //Serial.println(lastVal ^ curVal, BIN);
       Serial.println("--------");
       lastVal = curVal;
