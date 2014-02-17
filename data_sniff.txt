@@ -23,8 +23,8 @@ D3 : Received BIN : 0000_0000_0  101_0100_0101_000  1_0101_01  00
 Forme de la Tramme : 
 - Taille 32 bits  (unsigned long)
 
-- 9 bits à 0
-  * 000000000
+- 9 bis à 0
+  * 0
 
 - 8bits de Channel    (ou 7 bits de channel et 1 bit systématiquement à 0 ?)
   * 00101010 => A
@@ -40,4 +40,4 @@ Forme de la Tramme :
   * 1010101
 - 2 bits de commande 
   * 00 => OFF
-  * 01 => ON
+  * 11 => ON
